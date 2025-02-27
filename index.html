@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produktverwaltungssystem</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Produktverwaltung</h1>
+        </header>
+
+        <main class="main-content">
+            <section class="product-form">
+                <h2>Neues Produkt hinzufügen</h2>
+                <form id="productForm">
+                    <div class="form-group">
+                        <label for="productName">Produktname:</label>
+                        <input type="text" id="productName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice">Preis (€):</label>
+                        <input type="number" id="productPrice" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productDescription">Beschreibung:</label>
+                        <textarea id="productDescription" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Produkt hinzufügen</button>
+                </form>
+            </section>
+
+            <section class="product-list">
+                <h2>Produktliste</h2>
+                <div id="productTableContainer">
+                    <table id="productTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Preis</th>
+                                <th>Beschreibung</th>
+                                <th>Aktionen</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productTableBody">
+                            <!-- Produkte werden hier dynamisch eingefügt -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
