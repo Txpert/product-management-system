@@ -55,6 +55,22 @@ cd product-management-system
 
 Alle Produkte werden automatisch im LocalStorage des Browsers gespeichert und bleiben auch nach dem Neuladen der Seite erhalten.
 
+## 🌐 Browser-Unterstützung
+
+- Chrome (empfohlen)
+- Firefox
+- Safari
+- Edge
+
+## 📝 Hinweise
+
+- Für die beste Erfahrung einen modernen Browser verwenden
+- LocalStorage muss im Browser aktiviert sein
+- JavaScript muss aktiviert sein
+
+## 👥 Autor
+
+[Ihr Name]
 
 ## 📄 Lizenz
 
