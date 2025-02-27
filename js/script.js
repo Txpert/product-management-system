@@ -1,7 +1,7 @@
 // Produktklasse
 class Product {
     constructor(name, price, description) {
-        this.id = Date.now().toString(); // Eindeutige ID für jedes Produkt
+        this.id = Date.now().toString(); // Wie ein Namensschild für jedes Produkt
         this.name = name;
         this.price = parseFloat(price);
         this.description = description;
@@ -12,7 +12,7 @@ class Product {
     }
 }
 
-// Produktverwaltungsklasse
+// Produktverwaltungsklasse - Wie ein Spielleiter, der alles überwacht
 class ProductManager {
     constructor() {
         this.products = [];
@@ -21,68 +21,77 @@ class ProductManager {
         this.showWelcomeAnimation();
     }
 
-    // Willkommens-Animation
+    // 🎭 Willkommens-Animation - Wie wenn der Vorhang im Theater aufgeht
     showWelcomeAnimation() {
+        // 🔍 Wir suchen die Überschrift (wie eine Schatzsuche!)
         const header = document.querySelector('.header');
+        // 🎨 Wir machen sie erst unsichtbar
         header.style.opacity = '0';
+        // ⏰ Warten einen kurzen Moment...
         setTimeout(() => {
+            // ✨ ...und zaubern sie dann hervor!
             header.style.transition = 'opacity 1s ease-out';
             header.style.opacity = '1';
         }, 100);
     }
 
-    // Event Listener initialisieren
+    // 🎮 Event Listener - Wie Knöpfe an einer Spielkonsole
     initializeEventListeners() {
+        // 📝 Wir finden das Formular auf unserer Seite
         const form = document.getElementById('productForm');
+        // 👂 Wir hören zu, ob jemand auf "Absenden" klickt
         form.addEventListener('submit', (e) => {
-            e.preventDefault();
+            e.preventDefault(); // Stopp! Nicht die Seite neu laden
             this.addProductWithAnimation();
         });
 
-        // Hover-Effekte für Formularfelder
+        // 🖱️ Spezialeffekte für die Eingabefelder
         const inputs = document.querySelectorAll('input, textarea');
         inputs.forEach(input => {
+            // Wenn man draufklickt - wird es ein bisschen größer
             input.addEventListener('focus', () => {
                 input.style.transition = 'all 0.3s ease';
                 input.style.transform = 'scale(1.02)';
             });
+            // Wenn man wegklickt - wird es wieder normal
             input.addEventListener('blur', () => {
                 input.style.transform = 'scale(1)';
             });
         });
     }
 
-    // Produkt mit Animation hinzufügen
+    // 🎁 Neues Produkt hinzufügen - Wie ein neues Spielzeug auspacken
     async addProductWithAnimation() {
+        // 📦 Wir sammeln alle Informationen über das neue Produkt
         const name = document.getElementById('productName').value;
         const price = document.getElementById('productPrice').value;
         const description = document.getElementById('productDescription').value;
 
         const product = new Product(name, price, description);
         
-        // Animation für den Submit-Button
+        // 🎈 Der Knopf macht "plopp"
         const submitBtn = document.querySelector('.btn-primary');
         submitBtn.style.transform = 'scale(0.95)';
         setTimeout(() => {
             submitBtn.style.transform = 'scale(1)';
         }, 150);
 
-        // Produkt mit Verzögerung hinzufügen
         await this.animateAddProduct(product);
-        
         this.clearForm();
     }
 
-    // Animation beim Hinzufügen eines Produkts
+    // ✨ Animation für neues Produkt - Wie ein Zaubertrick
     async animateAddProduct(product) {
         this.products.push(product);
         this.saveProducts();
         
+        // 🎪 Wir bereiten die Bühne vor
         const tableBody = document.getElementById('productTableBody');
         const row = document.createElement('tr');
         row.style.opacity = '0';
         row.style.transform = 'translateY(20px)';
         
+        // 🎭 Wir dekorieren die neue Zeile
         row.innerHTML = `
             <td>${product.name}</td>
             <td>${product.formatPrice()}</td>
@@ -94,9 +103,8 @@ class ProductManager {
             </td>
         `;
         
+        // 🎬 Action! Die neue Zeile erscheint
         tableBody.insertBefore(row, tableBody.firstChild);
-        
-        // Animation abspielen
         await new Promise(resolve => setTimeout(resolve, 50));
         row.style.transition = 'all 0.5s ease-out';
         row.style.opacity = '1';
