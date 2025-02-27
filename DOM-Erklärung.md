@@ -79,7 +79,7 @@ Wenn wir ein neues Produkt hinzufügen, passiert Folgendes:
    // Das ist wie: "Ich stelle den Baustein ins Regal"
    ```
 
-## 🌈 Lustige Vergleiche
+##  Lustige Vergleiche
 
 - Das DOM ist wie ein **magischer Baukasten**
 - Elemente sind wie **Legosteine**
